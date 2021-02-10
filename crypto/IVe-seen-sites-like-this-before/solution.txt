@@ -1,0 +1,11 @@
+What we know:
+AES-256 is used as encryption method.
+IV is static but should be generated to be secure - this is our way in!
+
+IV is 8 bytes
+
+
+Solution:
+Skillnad i verifieringssträng i IV och session. Sista byten sätter UID. 
+67 - 40 = 0 => root
+
