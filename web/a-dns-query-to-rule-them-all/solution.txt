@@ -1,0 +1,12 @@
+They are not sanitizing their user inputs.
+
+So just run their DNS service with some-ip-address-or-whatever & ls
+
+This will run the following commands on their server:
+  * nslookup some-ip-address-or-whatever
+  * ls
+
+The ls command will list all their files in the current directory.
+With which you can see that there exists a flag.txt.
+
+Simply request http://challenges.ctfd.io:30460/flag.txt to retrieve it.
