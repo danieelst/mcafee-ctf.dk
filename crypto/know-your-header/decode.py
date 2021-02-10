@@ -1,3 +1,6 @@
+#!/usr/bin/env python2
+import sys
+
 def decode(data, key):
     
     # Initialize the return value of the function to an empty string
@@ -5,27 +8,11 @@ def decode(data, key):
 
     # Iterate over all the bytes in data
     for i in xrange(0, len(data)):
-        # Get the i-th character in the data
-        encoded_val = int(data[i])
-
-        k = key[i % len(key)]
-
-        c = chr(encoded_val ^ ord(k))
-
-        # Get the i-th character of the key (modulo the length of the key)
-        # Fore example, if the key length is 10 characters, and i is 12, (i % 10) equals 2 
-        # We do that so that when we reach the end of the key, we loop back to the begining
-        
-
-        # ord converts a character into its ascii value (i.e. a number)
-        # chr converts an ascii value (a number < 256) into a character (a byte) 
-        # ^ is the xor operator 
-        # Info about xor: 
-        #  a ^ a  = 0  (every value is its own opposite)
-        #  a ^ b = b ^ a (the order does not matter)
-        # a ^ b ^ c  = c ^ b ^ a = ...   (same with more values) 
-        # 0 ^ a = a (xoring with 0 doesn't change the value) 
-        
+        k = key[i % len(key)] 
+        encoded_val = data[i]
+        ord_c_xor_ord_k = ord(encoded_val)
+        ord_c = ord_c_xor_ord_k ^ ord(k)
+        c = chr(ord_c)
         res += c
     return res
 

@@ -5,3 +5,5 @@ xxd challenge_test > challenge_test_ascii
 xxd test_output > test_output_ascii
 
 Compare both and see pattern using test key 5566778899aabbcc
+
+Real key: 9f05a8dd940a15dd
