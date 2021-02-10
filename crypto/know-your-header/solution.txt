@@ -1,0 +1,7 @@
+Figure out how script works:
+python2 encode.py 5566778899aabbcc hint test_output
+
+xxd challenge_test > challenge_test_ascii
+xxd test_output > test_output_ascii
+
+Compare both and see pattern using test key 5566778899aabbcc
