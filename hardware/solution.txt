@@ -1,0 +1,19 @@
+Hint: "A researcher has discovered a file that has been encrypted with AES-128-ECB by an embedded device. The encrypted file has been captured through network analysis and the raw file is called Blob. With no debug ports available on the embedded device, one must extract the encryption key. Luckily, we have captured IC bus traffic while exercising functionality."
+
+
+The hint + the BusTraffic logic data file gave it away:
+BusTraffic.logicdata, where .logicdata is used by a program "Saleae logic": https://www.saleae.com/downloads/
+
+Download and install this program and open the BusTraffic.logicdata file.
+
+From here we can view the captured IC bus signals by zooming in.
+Add an I2C filter by pressing "+" in the right column.
+
+The secret key should now be shown in the right column.
+
+The encryption method is given in the hint and from here it is smooth sailing.
+
+openssl enc -aes-128-ecb -d -in blob -out flag -k safepasswordcomm
+The flag should now be shown in "flag" file:
+
+ATR[HWHackIsFun]
