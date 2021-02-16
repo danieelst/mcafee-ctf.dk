@@ -1,0 +1,33 @@
+for part 1:
+Figure out how script works:
+python2 encode.py 5566778899aabbcc hint test_output
+
+xxd challenge_test > challenge_test_ascii
+xxd test_output > test_output_ascii
+
+Compare both and see pattern using test key 5566778899aabbcc
+
+Real key: 9f05a8dd940a15dd
+
+---------------------------
+for part 2:
+When running the decoded program using input 5
+we can see with ltrace that the value turns into 3.
+
+With ghidra we can see that this value is in fact bitwise XOR:er with 0x66
+Running the program with different inputs this can be confirmed.
+0x47 => '!' (from ascii table 0x21)
+0x00 => 'f' (from ascii table 0x66)
+
+With ltrace we can see that our input gets encoded and compared to the string "good job!"
+for 'g' 
+
+For example g = 0x67 ^ 0x66 = 0x01, where 0x01 is compared to 0x67
+The trick is to xor the already xor:ed input with x66 to get 0x67 be compared to 0x67.
+
+"good job!" = 0x676f6f64206a6f6221
+xor 66 version of "good job!" = 0x01090902460c090447
+
+Give the program this as an input and 0x01090902460c090447 ^ 0x66 = 0x676f6f64206a6f6221
+
+The flag is ATR[(>)xor___xor(>]
