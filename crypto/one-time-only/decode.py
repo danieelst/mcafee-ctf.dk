@@ -12,8 +12,6 @@ filenames = ['encryption1.txt', 'encryption2.txt', 'encryption3.txt']
 
 encoding = 'utf-8'
 
-word_file = '500-words.txt'
-
 output_file = 'output.txt'
 
 words = ['Nebakanezzer', 'AcidicZero']
