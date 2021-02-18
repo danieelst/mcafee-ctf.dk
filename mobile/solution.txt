@@ -1,0 +1,4 @@
+1. Install dalvik decompiler jadx https://github.com/skylot/jadx
+2. Find password "notthefl@g" in decompile tool
+3. Install APK on phone
+4. A ListView of many passwords are shown. One of them is the flag ATR[R2D2]
